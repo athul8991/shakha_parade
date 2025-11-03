@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Zone Dashboard — Home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  
+</style>
+</head>
+<body>
+  <!-- mobile nav toggle -->
+  <input id="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <!-- off-canvas menu -->
+  <aside class="offcanvas" aria-label="Main menu (mobile)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div class="logo">MD</div>
+      <div>
+        <div style="font-weight:800">Zone Admi</div>
+        <div class="muted" style="font-size:13px">Scope: Kollam North (MND_001)</div>
+      </div>
+    </div>
+    <nav>
+      <a class="nav-item active" href="/">Home</a>
+      <a class="nav-item" href="add-Zone.html">Add Zone</a>
+      <a class="nav-item" href="find.html">Find by Shakha / Zone</a>
+
+      <a class="nav-item" href="#">Imports</a>
+      <a class="nav-item" href="#">Settings</a>
+    </nav>
+    <div style="margin-top:12px">
+      <label for="nav-toggle" style="display:inline-block;margin-top:16px;color:var(--muted);cursor:pointer">Close menu</label>
+    </div>
+  </aside>
+
+  <label class="overlay" for="nav-toggle" aria-hidden="true" title="Close menu"></label>
+
+  <div class="wrap" role="application" aria-label="Zone Dashboard">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" title="Toggle menu" tabindex="0">
+          <span class="bar" aria-hidden="true"></span>
+        </label>
+        <div class="logo" aria-hidden>MD</div>
+        <div>
+          <div style="font-weight:800">Zone Dashboard</div>
+          <div class="muted">Home — All Zones overview</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="muted">Signed in: <strong style="color:var(--accent);margin-left:8px">Zone_admin</strong></div>
+        <button class="btn ghost" aria-label="Profile">Profile</button>
+      </div>
+    </header>
+
+    <!-- Sidebar (desktop) -->
+    <aside class="sidebar panel" aria-label="Sidebar (desktop)">
+      <div class="brand" style="align-items:center">
+        <div class="logo" aria-hidden>MD</div>
+        <div>
+          <div style="font-weight:800">Zone Admin</div>
+          <div class="muted" style="font-size:13px">Scope: Kollam North (MND_001)</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-item active" href="#">Home</a>
+        <a class="nav-item" href="add-Zone.html">Add Zone</a>
+        <a class="nav-item" href="find.html">Find by Shakha / Zone</a>
+        <a class="nav-item" href="#">Settings</a>
+      </nav>
+
+      <div class="search" style="margin-top:12px">
+        <input type="text" placeholder="Search shakha or Zone (visual)" aria-label="Search" />
+      </div>
+
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+        <button class="btn">Add Zone</button>
+        <button class="btn ghost">Bulk Import</button>
+      </div>
+    </aside>
+
+    <!-- Main content (full-width) -->
+    <main class="panel" aria-label="Home content" style="min-height:60vh">
+      <div class="toolbar">
+        <div>
+          <div style="font-weight:800">All Zones</div>
+          <div class="muted">Overview of Zones, shakha counts and total members</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="muted">Sort: Updated</div>
+        </div>
+      </div>
+
+      <section class="grid" role="list" aria-label="Zone list">
+        <article class="card" role="listitem" aria-label="Kollam North">
+          <div class="title">Kollam North</div>
+          <div class="meta">Zone_id: MND_001 • Last updated: 2025-10-29</div>
+          <div class="stats" aria-hidden>
+            <div class="stat"><div class="num">3</div><div class="muted">Shakhas</div></div>
+            <div class="stat"><div class="num">185</div><div class="muted">Members</div></div>
+            <div class="stat"><div class="num">1</div><div class="muted">Karyavah</div></div>
+          </div>
+          <div class="card-actions">
+            <a class="action" href="mandal_details.html">View Details</a>
+            <button class="action primary">Export</button>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Malappuram East">
+          <div class="title">Malappuram East</div>
+          <div class="meta">Zone_id: MND_002 • Last updated: 2025-10-25</div>
+          <div class="stats" aria-hidden>
+            <div class="stat"><div class="num">2</div><div class="muted">Shakhas</div></div>
+            <div class="stat"><div class="num">98</div><div class="muted">Members</div></div>
+            <div class="stat"><div class="num">1</div><div class="muted">Karyavah</div></div>
+          </div>
+          <div class="card-actions">
+             <a class="action" href="mandal_details.html">View Details</a>
+            <button class="action primary">Export</button>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-label="Kollam South">
+          <div class="title">Kollam South</div>
+          <div class="meta">Zone_id: MND_003 • Last updated: 2025-10-20</div>
+          <div class="stats" aria-hidden>
+            <div class="stat"><div class="num">0</div><div class="muted">Shakhas</div></div>
+            <div class="stat"><div class="num">0</div><div class="muted">Members</div></div>
+            <div class="stat"><div class="num">1</div><div class="muted">Karyavah</div></div>
+          </div>
+          <div class="card-actions">
+             <a class="action" href="mandal_details.html">View Details</a>
+            <button class="action primary">Export</button>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

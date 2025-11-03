@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Zone Dashboard — Home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* === Form & Input Styles (shared across Add/Edit pages) === */
+.coodinator-container {
+    border: 1px solid  rgba(255,255,255,0.06);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+label {
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:transparent;
+  color:inherit;
+  font-size:14px;
+}
+
+textarea {
+  min-height:100px;
+  resize:vertical;
+}
+
+.row {
+  display:flex;
+  gap:10px;
+}
+
+.col {
+  flex:1;
+}
+
+/* === Card style for repeatable persons (Coordinator, Mukhyasishak, etc.) === */
+.person-card {
+  padding:12px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.01);
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.person-card .card-title {
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+/* Avatar / image upload box */
+.avatar-box {
+  width:80px;
+  height:80px;
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.02);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:8px;
+}
+.avatar-box img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}    
+</style>
+</head>
+<body>
+  <!-- mobile nav toggle -->
+  <input id="nav-toggle" type="checkbox" aria-hidden="true" />
+
+  <!-- off-canvas menu -->
+  <aside class="offcanvas" aria-label="Main menu (mobile)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div class="logo">MD</div>
+      <div>
+        <div style="font-weight:800">Zone Admi</div>
+        <div class="muted" style="font-size:13px">Scope: Kollam North (MND_001)</div>
+      </div>
+    </div>
+    <nav>
+      <a class="nav-item active" href="/">Home</a>
+      <a class="nav-item" href="add-Zone.html">Add Zone</a>
+      <a class="nav-item" href="find.html">Find by Shakha / Zone</a>
+
+      <a class="nav-item" href="#">Imports</a>
+      <a class="nav-item" href="#">Settings</a>
+    </nav>
+    <div style="margin-top:12px">
+      <label for="nav-toggle" style="display:inline-block;margin-top:16px;color:var(--muted);cursor:pointer">Close menu</label>
+    </div>
+  </aside>
+
+  <label class="overlay" for="nav-toggle" aria-hidden="true" title="Close menu"></label>
+
+  <div class="wrap" role="application" aria-label="Zone Dashboard">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" title="Toggle menu" tabindex="0">
+          <span class="bar" aria-hidden="true"></span>
+        </label>
+        <div class="logo" aria-hidden>MD</div>
+        <div>
+          <div style="font-weight:800">Zone Dashboard</div>
+          <div class="muted">Home — All Zones overview</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="muted">Signed in: <strong style="color:var(--accent);margin-left:8px">Zone_admin</strong></div>
+        <button class="btn ghost" aria-label="Profile">Profile</button>
+      </div>
+    </header>
+
+    <!-- Sidebar (desktop) -->
+    <aside class="sidebar panel" aria-label="Sidebar (desktop)">
+      <div class="brand" style="align-items:center">
+        <div class="logo" aria-hidden>MD</div>
+        <div>
+          <div style="font-weight:800">Zone Admin</div>
+          <div class="muted" style="font-size:13px">Scope: Kollam North (MND_001)</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-item active" href="#">Home</a>
+        <a class="nav-item" href="add-Zone.html">Add Zone</a>
+        <a class="nav-item" href="find.html">Find by Shakha / Zone</a>
+        <a class="nav-item" href="#">Settings</a>
+      </nav>
+
+      <div class="search" style="margin-top:12px">
+        <input type="text" placeholder="Search shakha or Zone (visual)" aria-label="Search" />
+      </div>
+
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+        <button class="btn">Add Zone</button>
+        <button class="btn ghost">Bulk Import</button>
+      </div>
+    </aside>
+
+    <!-- Main content (full-width) -->
+     <main class="panel" aria-label="Find Mandal/Shakha" style="min-height:60vh">
+  <div class="toolbar">
+    <div>
+      <div style="font-weight:800">Find by Shakha / Mandal</div>
+      <div class="muted">Search across all mandals and shakhas</div>
+    </div>
+  </div>
+
+  <!-- Search form -->
+  <form style="display:flex;flex-direction:column;gap:12px;max-width:600px;margin-bottom:20px">
+    <div>
+      <label>Search Term</label>
+      <input type="text" placeholder="Enter mandal or shakha name" />
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Filter by Type</label>
+        <select>
+          <option value="">All</option>
+          <option value="mandal">Mandal</option>
+          <option value="shakha">Shakha</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Filter by District</label>
+        <input type="text" placeholder="District name" />
+      </div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <button class="btn" type="submit">Search</button>
+      <button class="btn ghost" type="reset">Clear</button>
+    </div>
+  </form>
+
+  <!-- Results section -->
+  <section style="display:flex;flex-direction:column;gap:12px" aria-label="Search Results">
+    <article class="card">
+      <div class="title">Kollam North</div>
+      <div class="meta">Mandal • ID: MND_001 • 3 Shakhas • 185 Members</div>
+      <div class="card-actions">
+        <a class="action" href="detail.html">View Details</a>
+        <button class="action">Edit</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="title">Somname Shakha</div>
+      <div class="meta">Shakha • Under Mandal: Kollam North • 50 Members</div>
+      <div class="card-actions">
+        <a class="action" href="shakha-detail.html">View Details</a>
+        <button class="action">Edit</button>
+      </div>
+    </article>
+  </section>
+</main>
+  </div>
+</body>
+</html>
